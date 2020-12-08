@@ -1,15 +1,30 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  box-sizing: border-box;
+}
+
 body {
-  padding-top: 20px;
   font-family: 'Nerko One', cursive;
   text-align: center;
   background: rgb(238, 174, 202);
   background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
 }
 
+.main-section {
+  padding: 20px;
+}
+
+.selection-menu {
+  margin: auto;
+}
+
 .btn-create {
   font-family: 'Nerko One', cursive;
-  width: 150px;
-  height: 50px;
+  /* width: 150px;
+  height: 50px; */
+  margin: 20px 20px;
   font-size: 15px;
   text-align: center;
   border-radius: 5px;
@@ -35,14 +50,23 @@ body {
   border-style: solid;
   border-color: white;
   border-width: 2px;
+  transition: 200ms;
 }
+
+.card:hover {
+  box-shadow: 0 0 30px #ffff ;
+
+}
+
 
 .flipped-over {
-  /* background-color: black !important; */
-  background: rgb(147,168,179) !important;
-background: linear-gradient(288deg, rgba(147,168,179,1) 30%, rgba(95,92,91,1) 54%, rgba(27,22,22,1) 95%) !important;
+  background: rgb(147, 168, 179) !important;
+  background: linear-gradient(288deg, rgba(147, 168, 179, 1) 30%, rgba(95, 92, 91, 1) 54%, rgba(27, 22, 22, 1) 95%) !important;
+  transform: rotateY(180deg);
+  transition: 400ms;
 }
 
-.matched {
+.matched, .matched:hover {
   opacity: 50%;
+  box-shadow: none;
 }
