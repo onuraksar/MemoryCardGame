@@ -20,26 +20,29 @@
 
 <body>
   <section class="main-section">
-    <h1>Click the button below to start.</h1>
-    <div class="settings">
-      <button class=" btn-custom  btn btn-light btn-outline-secondary btn-lg">Add Custom Images</button>
-      <div class="selection-menu ">
-        <select name="level" id="level_menu" class="custom-select ">
-          <option value="choose">--Choose a Level--</option>
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="hard">Hard</option>
-        </select>
+    <div class="container">
+      <h1 class="title">Memory Card Game</h1>
+      <div class="settings">
+        <button class=" btn-custom  btn btn-light btn-outline-secondary btn-lg">Add Custom Images</button>
+        <div class="selection-menu ">
+          <select name="level" id="level_menu" class="custom-select ">
+            <option value="choose">--Choose a Level--</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-create btn btn-light btn-outline-secondary btn-lg ">Create New Cards</button>
+      <div class="score-table">
+        <p class="score-text">Score: <span class="score-value">0</span></p> 
+      </div>
+      <div class="game-board">
       </div>
     </div>
 
+    <!-- Score Table -->
 
-    <button class="btn-create btn btn-light btn-outline-secondary btn-lg ">Create New Cards</button>
-
-
-
-    <div class="game-board">
-    </div>
 
     <!-- Modal for warning -->
     <div id="warningModal" class="modal">
@@ -47,7 +50,6 @@
       <div class="modal-content">
         <p>All Cards Are Matched!</p>
         <span class="close">OK</span>
-
       </div>
     </div>
     <!-- Modal for Adding Custom Images -->
@@ -55,41 +57,55 @@
       <!-- Modal content -->
       <div class="modal-content">
         <!-- <span>Upload 6 different images from your device</span> -->
-        <h3>Upload 6 different images from your device</h3>
-        <div class="uploadImg">
-          <label for="image_0">
-            <input type="file" name="image" id="image_0" style="display:none;" />
-            <i class="far fa-plus-square fa-3x "></i>
-            <img src="" alt="" class="previewImag">
-          </label>
-          <label for="image_1">
-            <input type="file" name="image" id="image_1" style="display:none;" />
-            <i class="far fa-plus-square fa-3x "></i>
-            <img src="" alt="" class="previewImag">
+        <h1>Upload 6 different images from your device</h1>
+        <div class="custom-image__container">
+          <label class="custom-image__wrapper" for="image_0">
+            <input type="file" name="image" id="image_0" />
+            <span></span>
+
+            <!-- <i class="image-button far fa-plus-square fa-3x "></i> -->
 
           </label>
-          <label for="image_2">
-            <input type="file" name="image" id="image_2" style="display:none;" />
-            <i class="far fa-plus-square fa-3x "></i>
-            <img src="" alt="" class="previewImag">
+          <label class="custom-image__wrapper" for="image_1">
+            <input type="file" name="image" id="image_1" />
+            <span></span>
+
+            <!-- <i class="image-button far fa-plus-square fa-3x "></i> -->
+
 
           </label>
-          <label for="image_3">
-            <input type="file" name="image" id="image_3" style="display:none;" />
-            <i class="far fa-plus-square fa-3x "></i>
-            <img src="" alt="" class="previewImag">
+          <label class="custom-image__wrapper" for="image_2">
+            <input type="file" name="image" id="image_2"  />
+            <span></span>
+     
+
+            <!-- <i class="image-button far fa-plus-square fa-3x "></i> -->
+
 
           </label>
-          <label for="image_4">
-            <input type="file" name="image" id="image_4" style="display:none;" />
-            <i class="far fa-plus-square fa-3x "></i>
-            <img src="" alt="" class="previewImag">
+          <label class="custom-image__wrapper" for="image_3">
+            <input type="file" name="image" id="image_3"  />
+            <span></span>
+            
+
+            <!-- <i class="image-button far fa-plus-square fa-3x "></i> -->
+
 
           </label>
-          <label for="image_5">
-            <input type="file" name="image" id="image_5" style="display:none;" />
-            <i class="far fa-plus-square fa-3x "></i>
-            <img src="" alt="" class="previewImag">
+          <label class="custom-image__wrapper" for="image_4">
+            <input type="file" name="image" id="image_4" />
+            <span></span>
+            
+            <!-- <i class="image-button far fa-plus-square fa-3x "></i> -->
+ 
+
+          </label>
+          <label class="custom-image__wrapper" for="image_5">
+            <input type="file" name="image" id="image_5" />
+            <span></span>
+            
+
+            <!-- <i class="image-button far fa-plus-square fa-3x "></i> -->
 
           </label>
         </div>
@@ -99,7 +115,7 @@
     </div>
   </section>
 
-  <footer>Onur Akşar</footer>
+  <footer> Developed by Onur Akşar</footer>
   <script src="app.js" charset="utf-8"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

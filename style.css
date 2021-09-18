@@ -10,34 +10,120 @@ body {
   text-align: center;
   /* background: rgba(238, 174, 202, 1);
   background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%); */
-  background-color: #96c8fb;
-  background-image: linear-gradient(315deg, #96c8fb 0%, #ddbdfc 74%);
+  /* background-color: #96c8fb; */
+  /* background-image: linear-gradient(315deg, #96c8fb 0%, #ddbdfc 74%); */
 }
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 
 .main-section {
   /* padding: 20px; */
+  padding-top: 50px;
   margin-bottom: 50px;
 }
 
-.settings {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.title {
+  font-size: 30px;
 }
 
-.selection-menu {
-  /* margin: auto;
-  /* width: 10px; */
-  /* padding: 0;  */
-  /* margin-left: 0; */
+
+.settings {
+
+}
+
+.selection-menu select {
+  
 }
 
 .custom-select {}
 
-.uploadImg {
-  display: flex;
+.custom-image__container {
+  height: 100%;
+  overflow: scroll;
+  padding: 10px 0;
+  
+}
+
+.custom-image__wrapper {
+  /* display: flex; */
+  /* flex-direction: column; */
+  min-width: 100px;
+  min-height: 100px;
+  display: block;
+  position: relative;
+  /* margin-bottom: 20px; */
+  margin: 20px 0;
+}
+
+.custom-image__wrapper span{
+  display: inline-flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-around;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  margin: auto;
+  vertical-align: middle;
+  text-align: center;
+  background: #4e45401f;
+  position: absolute; 
+  top: 50%;
+  bottom: 50%;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+  animation: expand .3s;
+  transition: all ease 0.2s;
+  
+}
+
+
+
+.custom-image__wrapper span::before {
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 1px;
+  background-color: #000000;
+}
+.custom-image__wrapper span::after {
+  position: absolute;
+  content: '';
+  width: 1px;
+  height: 20px;
+  background-color: #000000;
+}
+
+.custom-image__wrapper span:hover {
+  border-color: #5e2563;
+  background: #4e45400d;
+}
+
+
+.custom-image__wrapper input{
+  display: none;  
+}
+
+.custom-image__wrapper img{
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+
+  /* background: ; */
+}
+.image-button {
+
 }
 
 .btn {
@@ -49,7 +135,7 @@ body {
 }
 
 .btn-create {
-  width: 700px;
+  /* width: 700px; */
 }
 
 /* .fa-plus-square {
@@ -57,8 +143,8 @@ body {
   width: 100px;
 } */
 .game-board {
-  height: 700px;
-  width: 700px;
+  /* height: 700px; */
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   margin: auto;
@@ -78,14 +164,17 @@ body {
   animation-duration: .2s;
   animation-iteration-count: 1; */
 .flip-card {
-  /* width: 100px;
-  height: 100px; */
-  width : 100%;
-  max-width: 200px;
-  height: 100%;
-  max-height: 200px;
-  background: transparent;
+
+  position: relative;
+  width: calc(100% / 3 - 20px);
   margin: 10px;
+  background: transparent;
+}
+
+.flip-card::before {
+  content: "";
+  float: left;
+  padding-top: 100%;
 }
 
 .flip-card-inner {
@@ -127,10 +216,8 @@ body {
 }
 
 .flip-card-back {
-  /* background: rgb(147, 168, 179);
-  background: linear-gradient(288deg, rgba(147, 168, 179, 1) 30%, rgba(95, 92, 91, 1) 54%, rgba(27, 22, 22, 1) 95%); */
-  background-color: #dfa375;
-  background-image: linear-gradient(315deg, #dfa375 0%, #c58e7f 74%);
+  background:linear-gradient(135deg, #65799b 0%,#5e2563 100%);
+  box-shadow: inset 0 0 0 200px rgba(255,255,255,0.3);
 }
 
 @keyframes expand {
@@ -151,8 +238,8 @@ body {
 }
 
 img {
-  width: 200px;
-  height: 200px;
+  /* width: 200px; */
+  /* height: 200px; */
   /* width: 40%;
   height: 40%; */
 
@@ -206,23 +293,7 @@ img {
   /* Black w/ opacity */
 }
 
-.far {
-  cursor: pointer;
-  animation: expand .3s;
-}
 
-.far:hover {
-  color: purple;
-}
-
-label {
-  display: flex;
-  flex-direction: column;
-}
-
-label img {
-  display: none;
-}
 
 /* Modal Content */
 .modal-content {
@@ -243,7 +314,9 @@ label img {
   /* font-size: 120px; */
 }
 
-
+#imageModal .modal-content h1{
+  font-size: 25px;
+}
 
 
 #imageModal .far {}
@@ -262,3 +335,33 @@ label img {
   text-decoration: none;
   cursor: pointer;
 }
+
+
+@media (min-width: 576px){
+  .container {
+    max-width: 540px;
+    
+
+  }
+}
+
+@media (min-width: 768px){
+  .container {
+    max-width: 720px;
+    
+
+  }
+}
+
+
+@media (min-width: 992px){
+  .title {
+    font-size: 45px;
+  }
+
+  .flip-card {
+    width: calc(100% / 4 - 40px);
+    margin: 20px;
+  }
+}
+

@@ -3,7 +3,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
   const gameBoard = document.querySelector(".game-board");
-  const button = document.querySelector(".btn-create");
+  const createButton = document.querySelector(".btn-create");
 
   // Choosing the Level for the Game:
   const levelMenu = document.querySelector("#level_menu");
@@ -28,23 +28,29 @@ document.addEventListener('DOMContentLoaded', function() {
     uploadImage();
   }
   // Upload Images:
-  const uploadImageSection = document.querySelector(".uploadImg");
+  const uploadImageSection = document.querySelector(".custom-image__container");
   const inpFile = [...uploadImageSection.getElementsByTagName("input")];
 
   function uploadImage() {
+
     allColors = []; // empty the default array that has animals as default.
     //  Grab Uploaded files:
-    inpFile.forEach(item => {
+
+
+    inpFile.forEach((item, index) => {
+      
+      var previewImage = document.createElement("img");
+      previewImage.classList.add("previewImag");
+      previewImage.setAttribute("id", "image" + index);
+      console.log("previewImage", previewImage)
+      
       item.onchange = function() {
         const file = this.files[0];
         let parentNodetoAppend = this.parentElement;
-        const previewImage = parentNodetoAppend.querySelector("img");
 
         if (file) {
           const reader = new FileReader();
-
           reader.onload = function() {
-
             previewImage.src = this.result;
             parentNodetoAppend.appendChild(previewImage);  // show the image preview.
             previewImage.style.display = "block";
@@ -103,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
 
-  button.addEventListener("click", createBoard);
+  createButton.addEventListener("click", createBoard);
 
 
 
@@ -115,6 +121,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   let firstCardColor;
   let secondCardColor;
+
+  let scoreCounter = 0;
 
   // Shuffle the cards so that the order of the color will be different.
   function shuffle(array) {
@@ -131,6 +139,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function createBoard() {
     // First check whether an option is selected. Warn the user if not.
+    scoreCounter = 0;
+    updateScore(scoreCounter);
+
     if (selectedOption === "choose") {
       document.querySelector(".modal-content p").innerText = "Choose an Option!";
       modalWarning.style.display = "block";
@@ -275,7 +286,8 @@ document.addEventListener('DOMContentLoaded', function() {
       secondCard.classList.add("matched");
       checkMatchedCards(); // check if all cards have been matched.
       // secondCard.classList.remove("flipped-over");
-
+      scoreCounter ++;
+      updateScore(scoreCounter);
     } else {
       // if they are not the same cards. Flip them back off
       firstCard.firstElementChild.classList.toggle("animate");
@@ -305,6 +317,9 @@ function checkMatchedCards() {
   }
 }
 
+function updateScore(value) {
+  document.querySelector(".score-value").innerHTML = value;
+}
 
 
 //modal
